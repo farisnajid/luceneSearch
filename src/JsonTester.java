@@ -28,7 +28,7 @@ public class JsonTester {
         // Loop to keep asking for queries until user types "exit"
         while (true) {
 
-            System.out.println("What type of Query? (enter \"b\" for Boolean query, \"r\" for Ranking query, or \"exit\" to quit):");
+            System.out.println("What type of Query? (enter \"b\" for boolean query, \"r\" for ranking query, or \"exit\" to quit):");
             String queryType = scanner.nextLine();
             boolean isRankingQuery = queryType.equals("r") ? true: false;
 
