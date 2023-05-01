@@ -50,8 +50,9 @@ public class JsonTester {
             if (resultSize == 0) {
                 System.out.println("No results found.");
             } else {
+                System.out.println("Total results: " + resultSize);
                 for (Document result : results) {
-                    System.out.println("Total results: " + resultSize);
+
                     System.out.println("{" + " review_id: " + result.get("review_id") + ", user_id: " + result.get("user_id") + ", stars: " + result.get("stars") + ", useful: " + result.get("useful") + ", funny: " + result.get("funny") + ", cool: " + result.get("cool") + ", date: " + result.get("date") + ", text: " + result.get("text") + " }");
                 }
             }
