@@ -53,7 +53,8 @@ public class JsonTester {
                 System.out.println("Total results: " + resultSize);
                 for (Document result : results) {
 
-                    System.out.println("{" + " review_id: " + result.get("review_id") + ", user_id: " + result.get("user_id") + ", stars: " + result.get("stars") + ", useful: " + result.get("useful") + ", funny: " + result.get("funny") + ", cool: " + result.get("cool") + ", date: " + result.get("date") + ", text: " + result.get("text") + " }");
+                    // System.out.println("{" + " review_id: " + result.get("review_id") + ", user_id: " + result.get("user_id") + ", stars: " + result.get("stars") + ", useful: " + result.get("useful") + ", funny: " + result.get("funny") + ", cool: " + result.get("cool") + ", date: " + result.get("date") + ", text: " + result.get("text") + " }");
+                    System.out.println("{" + " business_id: " + result.get("business_id") + ", name: " + result.get("name") + ", address: " + result.get("address") + ", city: " + result.get("city") + ", state: " + result.get("state") + ", postal_code: " + result.get("postal_code") + ", latitude: " + result.get("latitude") + ", longitude: " + result.get("longitude") + ", stars: " + result.get("stars") + ", review_count: " + result.get("review_count") + ", is_open: " + result.get("is_open") + " }");
                 }
             }
         }
