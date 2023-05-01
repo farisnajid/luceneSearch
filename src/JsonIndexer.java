@@ -32,7 +32,7 @@ public class JsonIndexer {
 
         File jsonDir = new File(jsonDirPath);
         for (File file : jsonDir.listFiles()) {
-            if (file.isFile() && file.getName().endsWith("review.json")) {
+            if (file.isFile() && file.getName().endsWith("business.json")) {
                 indexJsonFile(file, writer);
             }
         }
@@ -45,33 +45,42 @@ public class JsonIndexer {
             String line;
             while ((line = br.readLine()) != null) {
                 JSONObject jsonObj = new JSONObject(line);
-                
-                String review_id = jsonObj.getString("review_id");
-                String user_id = jsonObj.getString("user_id");
-                String business_id = jsonObj.getString("business_id");
-                int stars_int = jsonObj.getInt("stars");
-                int useful_int = jsonObj.getInt("useful");
-                int funny_int = jsonObj.getInt("funny");
-                int cool_int = jsonObj.getInt("cool");
-                String text = jsonObj.getString("text");
-                String date = jsonObj.getString("date");
 
-                String stars = Integer.toString(stars_int);
-                String useful = Integer.toString(useful_int);
-                String funny = Integer.toString(funny_int);
-                String cool = Integer.toString(cool_int);
+                String business_id = jsonObj.getString("business_id");
+                String name = jsonObj.getString("name");
+                String address = jsonObj.getString("address");
+                String city = jsonObj.getString("city");
+                String state = jsonObj.getString("state");
+                String postal_code = jsonObj.getString("postal_code");
+                // String categories = jsonObj.getString("categories");
+                // String hours = jsonObj.getString("hours");
+
+                double latitude_double = jsonObj.getDouble("latitude");
+                double longitude_double = jsonObj.getDouble("longitude");
+                double stars_double = jsonObj.getDouble("stars");
+                int review_count_int = jsonObj.getInt("review_count");
+                int is_open_int = jsonObj.getInt("is_open");
+
+                String latitude = Double.toString(latitude_double);
+                String longitude = Double.toString(longitude_double);
+                String stars = Double.toString(stars_double);
+                String review_count = Integer.toString(review_count_int);
+                String is_open = Integer.toString(is_open_int);
 
                 Document doc = new Document();
 
-                doc.add(new TextField("review_id", review_id, Field.Store.YES));
-                doc.add(new TextField("user_id", user_id, Field.Store.YES));
                 doc.add(new TextField("business_id", business_id, Field.Store.YES));
+                doc.add(new TextField("name", name, Field.Store.YES));
+                doc.add(new TextField("address", address, Field.Store.YES));
+                doc.add(new TextField("city", city, Field.Store.YES));
+                doc.add(new TextField("state", state, Field.Store.YES));
+                doc.add(new TextField("postal_code", postal_code, Field.Store.YES));
+                // doc.add(new TextField("categories", categories, Field.Store.YES));
+                doc.add(new TextField("latitude", latitude, Field.Store.YES));
+                doc.add(new TextField("longitude", longitude, Field.Store.YES));
                 doc.add(new TextField("stars", stars, Field.Store.YES));
-                doc.add(new TextField("useful", useful, Field.Store.YES));
-                doc.add(new TextField("funny", funny, Field.Store.YES));
-                doc.add(new TextField("cool", cool, Field.Store.YES));
-                doc.add(new TextField("text", text, Field.Store.YES));
-                doc.add(new TextField("date", date, Field.Store.YES));
+                doc.add(new TextField("review_count", review_count, Field.Store.YES));
+                doc.add(new TextField("is_open", is_open, Field.Store.YES));
 
                 writer.addDocument(doc);
             }

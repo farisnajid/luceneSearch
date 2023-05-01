@@ -29,7 +29,8 @@ public class JsonSearcher {
         Directory directory = FSDirectory.open(Paths.get(indexDir));
         IndexReader reader = DirectoryReader.open(directory);
         searcher = new IndexSearcher(reader);
-        queryParser = new MultiFieldQueryParser(new String[] { "review_id", "user_id", "stars","useful","funny","cool","text","date" }, new StandardAnalyzer());
+        // queryParser = new MultiFieldQueryParser(new String[] { "review_id", "user_id", "stars","useful","funny","cool","text","date" }, new StandardAnalyzer());
+        queryParser = new MultiFieldQueryParser(new String[] { "business_id", "name", "address", "city", "state", "postal_code", "latitude", "longitude", "stars", "review_count", "is_open" }, new StandardAnalyzer());
     }
 
     public List<Document> search(String queryString, boolean isRankingQuery, int numResults) throws ParseException, IOException {
