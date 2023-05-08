@@ -3,10 +3,8 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/lucene-9.5.0/modules/lucene-analysis-common-9.5.0.jar",
-        "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/lucene-9.5.0/modules/lucene-core-9.5.0.jar",
-        "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/lucene-9.5.0/modules/lucene-demo-9.5.0.jar",
-        "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/lucene-9.5.0/modules/lucene-queryparser-9.5.0.jar",
-        "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/jar_files/json-1.1.jar"
+        "lib/lucene-9.5.0/modules/*.jar",
+        "lib/jar_files/json-1.1.jar"
+        // "/Users/farisnajid/Documents/MSFT/MH6301 - Information Retrieval & Analysis/java codes/jar_files/json-1.1.jar"
     ]
 }
